@@ -177,7 +177,7 @@ def train_fast_rcnn(debug_output=False, model_path=model_file):
                 input_map=input_map, 
                 num_data_partitions=C.Communicator.num_workers(), 
                 partition_index=C.Communicator.rank())     
-                trainer.train_minibatch(data)                                    # update model with it
+            trainer.train_minibatch(data)                                    # update model with it
             sample_count += trainer.previous_minibatch_sample_count          # count samples processed so far
 
         trainer.summarize_training_progress()
